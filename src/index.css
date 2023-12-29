@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Ma+Shan+Zheng&family=Open+Sans:wght@500&family=Playfair+Display&family=Roboto:wght@100;400&family=Rubik+Iso&family=Varela+Round&display=swap');
+
+* {
+    /* Fix issue with extra space on the side when adding padding */
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+
+    --transparent-black: rgba(0, 0, 0, 0.3);
+    --white: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("assets/jpg/background.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
