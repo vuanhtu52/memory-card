@@ -1,10 +1,12 @@
 import "../styles/Card.css";
+import CardBackImage from "../assets/jpg/card-back.jpg";
+import { useState, useEffect } from "react";
 
-const Card = ({image, text}) => {
+const Card = ({ pokemon }) => {
     return (
         <div className="card">
-            <img src={image} alt="card image" />
-            <p>{text}</p>
+            <img src={pokemon ? pokemon.url : CardBackImage} alt="pokemon image" />
+            <div>{pokemon ? pokemon.name : ""}</div>
         </div>
     );
 };
