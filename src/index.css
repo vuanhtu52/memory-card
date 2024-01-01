@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Ma+Shan+Zheng&family=Open+Sans:wght@500&family=Playfair+Display&family=Roboto:wght@100;400&family=Rubik+Iso&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Diphylleia&family=Ma+Shan+Zheng&family=Open+Sans:wght@500&family=Playfair+Display&family=Roboto:wght@100;400&family=Rubik+Iso&family=Varela+Round&display=swap');
 
 * {
     /* Fix issue with extra space on the side when adding padding */
@@ -11,6 +12,8 @@
 
     --transparent-black: rgba(0, 0, 0, 0.3);
     --white: white;
+    --transparent-white: rgba(255, 255, 255, 0.7);
+    --green: green;
 }
 
 body {

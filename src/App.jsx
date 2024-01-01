@@ -57,13 +57,18 @@ function App() {
 
   return (
     <>
+      <div className="overlay"></div>
       <NavBar />
 
-      <div className="cards-wrapper">
-        {
-          selectRandomPokemons(pokemons).map((pokemon, index) => <Card key={cardIds[index]} pokemon={pokemon} />)
-        }
-      </div>
+      <section className="main">
+        <div className="cards-wrapper">
+          {
+            selectRandomPokemons(pokemons).map((pokemon, index) => <Card key={cardIds[index]} pokemon={pokemon} />)
+          }
+        </div>
+
+        <button className="restart-button">Restart</button>
+      </section>
     </>
   )
 }
