@@ -8,6 +8,11 @@
     font-size: 20px;
 }
 
+.card:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+
 .card > .img-wrapper {
     width: 150px; 
     height: 200px;
@@ -20,14 +25,13 @@
     cursor: pointer;
 }
 
-.card:hover {
-    transform: scale(1.2);
-    transition: transform 0.3s ease-in-out;
-}
-
 .card > .img-wrapper > img {
     width: 100%;
     height: 100%;
+}
+
+.card > .name {
+    height: 30px;
 }
 
 @media (max-width: 800px) {

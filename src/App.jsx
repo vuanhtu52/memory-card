@@ -1,7 +1,6 @@
 import "./App.css";
 import Card from "./components/Card";
 import NavBar from "./components/NavBar";
-import PokeBallIcon from "./assets/svg/pokeball.svg";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -14,7 +13,7 @@ function App() {
   }
 
   const selectRandomPokemons = pokemonsList => {
-    const randomIndices = generateRandomIntegersInRange(0, pokemonsList.length - 1, cardsCount);
+    const randomIndices = generateRandomIntegers(0, pokemonsList.length - 1, cardsCount);
     const result = [];
     for (let i of randomIndices) {
       result.push(pokemonsList[i]);
@@ -22,18 +21,27 @@ function App() {
     return result;
   };
 
-  const generateRandomIntegersInRange = (min, max, n) => {
-    const randomIntegers = [];
-    for (let i = 0; i < n; i++) {
-      const randomInteger = Math.floor(Math.random() * (max - min + 1)) + min;
-      randomIntegers.push(randomInteger);
+  const generateRandomIntegers = (min, max, n) => {
+    if (max <= min) {
+      return Array(n).fill(0);
     }
-    return randomIntegers.sort();
-  }
+
+    let nums = [];
+    for (let i = min; i <= max; i++) {
+      nums.push(i);
+    }
+    nums.sort(() => Math.random() - 0.5);
+
+    if (n < nums.length) {
+      nums = nums.slice(0, n)
+    }
+
+    return nums;
+  };
 
   // Fetch all pokemons
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=100")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=1000")
       .then(response => {
         return response.json();
       })
