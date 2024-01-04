@@ -1,9 +1,28 @@
 import "../styles/Card.css";
 import CardBackImage from "../assets/jpg/card-back.jpg";
 
-const Card = ({ pokemon, updateSelectedPokemons }) => {
+const Card = (
+    {
+        pokemon,
+        updateSelectedPokemons,
+        pickedPokemons,
+        setPickedPokemons,
+        score,
+        setScore,
+        highScore,
+        setHighScore
+    }
+) => {
     const handleClickCard = () => {
-        console.log("clicked");
+        if (pickedPokemons.includes(pokemon.name)) {
+            console.log("Duplicate: ", pokemon);
+        } else {
+            setPickedPokemons([...pickedPokemons, pokemon.name]);
+            if (score === highScore) {
+                setHighScore(highScore + 1);
+            }
+            setScore(score + 1);
+        }
         updateSelectedPokemons();
     };
 

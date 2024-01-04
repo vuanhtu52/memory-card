@@ -1,7 +1,7 @@
 import "../styles/NavBar.css";
 import PokeballIcon from "../assets/svg/pokeball.svg";
 
-const NavBar = () => {
+const NavBar = ({score, highScore}) => {
     return (
         <div className="navbar">
             <header>
@@ -10,8 +10,14 @@ const NavBar = () => {
             </header>
 
             <div className="score-board">
-                <div>Current score: 0</div>
-                <div>High score: 0</div>
+                <div className="score">
+                    <div>Current score:</div>
+                    <div>{score}</div>
+                </div>
+                <div className="high-score">
+                    <div>High score:</div>
+                    <div>{highScore}</div>
+                </div>
             </div>
         </div>
     )
