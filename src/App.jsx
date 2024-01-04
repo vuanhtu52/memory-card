@@ -1,5 +1,6 @@
 import "./App.css";
 import Card from "./components/Card";
+import GameOverDialog from "./components/GameOverDialog";
 import NavBar from "./components/NavBar";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -11,6 +12,7 @@ function App() {
   const [pickedPokemons, setPickedPokemons] = useState([]);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
   const cardIds = [];
   for (let i = 0; i < cardsCount; i++) {
@@ -47,6 +49,13 @@ function App() {
 
     return nums;
   };
+
+  const handleClickRestart = () => {
+    setGameOver(false);
+    setPickedPokemons([]);
+    setScore(0);
+    updateSelectedPokemons();
+};
 
   // Fetch all pokemons
   useEffect(() => {
@@ -100,14 +109,18 @@ function App() {
                 setScore={setScore}
                 highScore={highScore}
                 setHighScore={setHighScore}
+                gameOver={gameOver}
+                setGameOver={setGameOver}
               />)
           }
         </div>
 
-        <button className="restart-button">Restart</button>
+        <button className="restart-button" onClick={handleClickRestart}>Restart</button>
       </section>
+
+      {gameOver && <GameOverDialog score={score} handleClickRestart={handleClickRestart} />}
     </>
   )
 }
 
-export default App
+export default App;

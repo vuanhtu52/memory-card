@@ -10,12 +10,14 @@ const Card = (
         score,
         setScore,
         highScore,
-        setHighScore
+        setHighScore,
+        gameOver,
+        setGameOver
     }
 ) => {
     const handleClickCard = () => {
         if (pickedPokemons.includes(pokemon.name)) {
-            console.log("Duplicate: ", pokemon);
+            setGameOver(true);
         } else {
             setPickedPokemons([...pickedPokemons, pokemon.name]);
             if (score === highScore) {

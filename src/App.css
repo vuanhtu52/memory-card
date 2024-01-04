@@ -5,7 +5,7 @@
     justify-content: space-between;
 }
 
-.overlay {
+#root > .overlay {
     position: absolute;
     z-index: -1;
     top: 0;
@@ -33,7 +33,7 @@
    gap: 50px;
 }
 
-.restart-button {
+.main > .restart-button {
     font-size: 25px;
     padding: 20px 50px;
     border-radius: 10px;
@@ -43,7 +43,7 @@
     color: #fffbeb;
 }
 
-.restart-button:active {
+.main > .restart-button:active {
     transform: translateY(4px);
 }
 

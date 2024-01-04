@@ -1,0 +1,82 @@
+/* .dialog {
+    background-color: #ca8a04;
+    color: white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 400px;
+    padding: 20px 0;
+    border-radius: 10px;
+    font-family: "Diphylleia";
+}
+
+.dialog > :first-child {
+    font-size: 30px;
+}
+
+.dialog > :nth-child(2) {
+    font-size: 20px;
+}
+
+.dialog > .restart-button {
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+} */
+
+.dialog {
+    z-index: 100;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dialog .dialog-box {
+    background-color: #ca8a04;
+    color: white;
+    /* position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 400px;
+    padding: 20px 0;
+    border-radius: 10px;
+    font-family: "Diphylleia";
+}
+
+.dialog .dialog-box > :first-child {
+    font-size: 30px;
+}
+
+.dialog .dialog-box > :nth-child(2) {
+    font-size: 20px;
+}
+
+.dialog .dialog-box > .restart-button {
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.dialog .dialog-box > .restart-button:active {
+    transform: translateY(4px);
+}
