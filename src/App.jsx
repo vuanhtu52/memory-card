@@ -5,8 +5,10 @@ import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const [pokemons, setPokemons] = useState([]);
   const cardsCount = 12;
+  const [pokemons, setPokemons] = useState([]);
+  const [selectedPokemons, setSelectedPokemons] = useState(Array(cardsCount).fill(0));
+
   const cardIds = [];
   for (let i = 0; i < cardsCount; i++) {
     cardIds.push(uuidv4());
@@ -19,6 +21,10 @@ function App() {
       result.push(pokemonsList[i]);
     }
     return result;
+  };
+
+  const updateSelectedPokemons = () => {
+    setSelectedPokemons(selectRandomPokemons(pokemons));
   };
 
   const generateRandomIntegers = (min, max, n) => {
@@ -41,7 +47,7 @@ function App() {
 
   // Fetch all pokemons
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=1000")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=100")
       .then(response => {
         return response.json();
       })
@@ -59,6 +65,7 @@ function App() {
           });
         });
         setPokemons(newPokemons);
+        setSelectedPokemons(selectRandomPokemons(newPokemons));
       })
       .catch(error => console.log(error));
   }, []);
@@ -71,7 +78,7 @@ function App() {
       <section className="main">
         <div className="cards-wrapper">
           {
-            selectRandomPokemons(pokemons).map((pokemon, index) => <Card key={cardIds[index]} pokemon={pokemon} />)
+            selectedPokemons.map((pokemon, index) => <Card key={cardIds[index]} pokemon={pokemon} updateSelectedPokemons={updateSelectedPokemons} />)
           }
         </div>
 
