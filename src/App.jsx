@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 function App() {
   const cardsCount = 12;
   const [pokemons, setPokemons] = useState([]);
-  const [selectedPokemons, setSelectedPokemons] = useState(Array(cardsCount).fill(0));
+  const [selectedPokemons, setSelectedPokemons] = useState(Array(cardsCount).fill({name: "", url: ""}));
   const [pickedPokemons, setPickedPokemons] = useState([]);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
@@ -20,6 +20,13 @@ function App() {
   }
 
   const selectRandomPokemons = pokemonsList => {
+    if (pokemonsList.length === 0) {
+      return new Array(cardsCount).fill({
+        name: "",
+        url: "",
+      })
+    }
+
     const randomIndices = generateRandomIntegers(0, pokemonsList.length - 1, cardsCount);
     const result = [];
     for (let i of randomIndices) {
@@ -60,6 +67,13 @@ function App() {
   // Fetch all pokemons
   useEffect(() => {
     const selectRandomPokemons = pokemonsList => {
+      if (pokemonsList.length === 0) {
+        return new Array(cardsCount).fill({
+          name: "",
+          url: "",
+        })
+      }
+
       const randomIndices = generateRandomIntegers(0, pokemonsList.length - 1, cardsCount);
       const result = [];
       for (let i of randomIndices) {

@@ -2,7 +2,6 @@ import "../styles/NavBar.css";
 import PokeballIcon from "../assets/svg/pokeball.svg";
 
 const NavBar = ({score, highScore}) => {
-    console.log("score: ", score);
     return (
         <div className="navbar">
             <header>

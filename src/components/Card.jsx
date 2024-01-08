@@ -12,7 +12,6 @@ const Card = (
         setScore,
         highScore,
         setHighScore,
-        gameOver,
         setGameOver
     }
 ) => {
@@ -32,15 +31,32 @@ const Card = (
     return (
         <div className="card">
             <div className="img-wrapper" onClick={handleClickCard}>
-                <img src={pokemon ? pokemon.url : CardBackImage} alt="pokemon image" />
+                <img src={pokemon.url !== "" ? pokemon.url : CardBackImage} alt="pokemon image" />
             </div>
-            <div className="name">{pokemon ? pokemon.name : ""}</div>
+            <div className="name">{pokemon.name !== "" ? pokemon.name : ""}</div>
         </div>
     );
 };
 
-Card.propTypes = {
+const isInteger = (props, propName, componentName) => {
+    if (!Number.isInteger(props[propName])) {
+        return new Error(`${componentName}: ${propName}  must be integer`);
+    }
+};
 
+Card.propTypes = {
+    pokemon: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+    }).isRequired,
+    updateSelectedPokemons: PropTypes.func.isRequired,
+    pickedPokemons: PropTypes.array.isRequired,
+    setPickedPokemons: PropTypes.func.isRequired,
+    score: isInteger,
+    setScore: PropTypes.func.isRequired,
+    highScore: isInteger,
+    setHighScore: PropTypes.func.isRequired,
+    setGameOver: PropTypes.func.isRequired,
 };
 
 export default Card;
