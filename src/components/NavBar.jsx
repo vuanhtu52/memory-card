@@ -2,6 +2,7 @@ import "../styles/NavBar.css";
 import PokeballIcon from "../assets/svg/pokeball.svg";
 
 const NavBar = ({score, highScore}) => {
+    console.log("score: ", score);
     return (
         <div className="navbar">
             <header>
@@ -21,6 +22,17 @@ const NavBar = ({score, highScore}) => {
             </div>
         </div>
     )
+};
+
+const isInteger = (props, propName, componentName) => {
+    if (!Number.isInteger(props[propName])) {
+        return new Error(`${componentName}: ${propName}  must be integer`);
+    }
+};
+
+NavBar.propTypes = {
+    score: isInteger,
+    highScore: isInteger,
 };
 
 export default NavBar;

@@ -1,5 +1,6 @@
 import "../styles/Card.css";
 import CardBackImage from "../assets/jpg/card-back.jpg";
+import PropTypes from "prop-types";
 
 const Card = (
     {
@@ -36,6 +37,10 @@ const Card = (
             <div className="name">{pokemon ? pokemon.name : ""}</div>
         </div>
     );
+};
+
+Card.propTypes = {
+
 };
 
 export default Card;
